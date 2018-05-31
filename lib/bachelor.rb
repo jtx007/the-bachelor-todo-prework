@@ -59,7 +59,7 @@ def get_average_age_for_season(data, season)
   data.each do |season_number, season_data|
     if season_number == season
       season_data.each do |contestant|
-        contestant.collect do |attribute, value|
+        contestant.each do |attribute, value|
           if attribute == "age"
             age << value.to_f
           end
