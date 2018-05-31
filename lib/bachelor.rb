@@ -2,31 +2,29 @@ require 'pry'
 
 def get_first_name_of_season_winner(data, season)
   # code here
-  winner_first_name = " "
+
   data.each do |season_number, season_data|
     if season_number == season
       season_data.each do |contestant|
         if contestant["status"] == "Winner"
-        winner_first_name = contestant["name"].split(" ").shift
+       return winner_first_name = contestant["name"].split(" ").shift
         end
       end
     end
   end
-  winner_first_name
 end
 
 
 def get_contestant_name(data, occupation)
   # code here
-  occupant = " "
+
   data.each do |season_number, season_data|
     season_data.each do |contestant|
       if contestant["occupation"] == occupation
-        occupant = contestant["name"]
+       return occupant = contestant["name"]
       end
     end
   end
-  occupant
 end
 
 def count_contestants_by_hometown(data, hometown)
@@ -58,7 +56,6 @@ end
 def get_average_age_for_season(data, season)
   # code here
   age = []
-  average_age = nil
   data.each do |season_number, season_data|
     if season_number == season
       season_data.each do |contestant|
@@ -66,11 +63,9 @@ def get_average_age_for_season(data, season)
           if attribute == "age"
             age << value.to_f
           end
-        end
+        end  
       end
     end 
   end
-  average_age = age.inject {|sum, el| sum + el } / age.size
-  average_age.round
-
+  (age.inject {|sum, el| sum + el } / age.size).round
 end
